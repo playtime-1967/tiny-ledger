@@ -11,3 +11,9 @@ public class TransferMoneyRequest
     public Guid ToAccountId { get; set; }
     public decimal Amount { get; set; }
 }
+
+public class DepositRequest
+{
+    public Guid ToAccountId { get; set; }
+    public decimal Amount { get; set; }
+}

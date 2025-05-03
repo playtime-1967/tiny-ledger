@@ -28,9 +28,16 @@ public class AccountController : ControllerBase
         return _accountService.Balance(accountId);
     }
 
+    [HttpPost("deposit")]
+    public void Deposit([FromBody] DepositRequest request)
+    {
+        _accountService.Deposit(request.ToAccountId, request.Amount);
+    }
+
     [HttpPost("transfer-money")]
     public void TransferMoney([FromBody] TransferMoneyRequest request)
     {
         _accountService.TransferMoney(request.FromAccountId, request.ToAccountId, request.Amount);
     }
+    
 }

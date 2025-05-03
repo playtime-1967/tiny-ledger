@@ -32,6 +32,15 @@ public class AccountService
         _transactions.Add(transaction);
     }
 
+    public void Deposit(Guid toAccountId, decimal amount)
+    {
+        var account = GetAccount(toAccountId);
+        account.Deposit(amount);
+
+        var tx = new Transaction(null, toAccountId, amount, TransactionType.Deposit);
+        _transactions.Add(tx);
+    }
+
     private Account GetAccount(Guid accountId)
     {
         if (!_accounts.TryGetValue(accountId, out var account))
