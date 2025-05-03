@@ -1,4 +1,4 @@
-using TinyLedger.Application;
+using TinyLedger.Domain;
 
 var builder = WebApplication.CreateBuilder(args);
 

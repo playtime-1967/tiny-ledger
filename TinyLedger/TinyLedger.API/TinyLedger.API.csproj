@@ -7,7 +7,7 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-	  <ProjectReference Include="..\TinyLedger.Application\TinyLedger.Application.csproj" />
+	  <ProjectReference Include="..\TinyLedger.Domain\TinyLedger.Domain.csproj" />
 	</ItemGroup>
 
 </Project>

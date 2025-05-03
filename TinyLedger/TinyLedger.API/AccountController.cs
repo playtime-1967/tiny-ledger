@@ -1,5 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
-using TinyLedger.Application;
+using TinyLedger.Domain;
 using TinyLedger.Domain.Entities;
 
 namespace TinyLedger.API;
@@ -26,5 +26,11 @@ public class AccountController : ControllerBase
     public decimal Balance(Guid accountId)
     {
         return _accountService.Balance(accountId);
+    }
+
+    [HttpPost("transfer-money")]
+    public void TransferMoney([FromBody] TransferMoneyRequest request)
+    {
+        _accountService.TransferMoney(request.FromAccountId, request.ToAccountId, request.Amount);
     }
 }

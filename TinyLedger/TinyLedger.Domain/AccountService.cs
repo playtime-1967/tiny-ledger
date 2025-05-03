@@ -1,10 +1,11 @@
 ﻿using TinyLedger.Domain.Entities;
 
-namespace TinyLedger.Application;
+namespace TinyLedger.Domain;
 
 public class AccountService
 {
     private readonly Dictionary<Guid, Account> _accounts = new();
+    private readonly List<Transaction> _transactions = new();
 
     public Account CreateAccount(string owner)
     {
@@ -16,7 +17,19 @@ public class AccountService
 
     public decimal Balance(Guid accountId)
     {
-        return GetAccount(accountId).Balnace;
+        return GetAccount(accountId).Balance;
+    }
+
+    public void TransferMoney(Guid fromAccountId, Guid toAccountId, decimal amount)
+    {
+        var from = GetAccount(fromAccountId);
+        var to = GetAccount(toAccountId);
+
+        from.Withdrawal(amount);
+        to.Deposit(amount);
+
+        var transaction = new Transaction(from.AccountId, to.AccountId, amount, TransactionType.Transfer);
+        _transactions.Add(transaction);
     }
 
     private Account GetAccount(Guid accountId)
@@ -26,6 +39,5 @@ public class AccountService
 
         return account;
     }
-
 
 }
