@@ -1,0 +1,221 @@
+{
+	"info": {
+		"_postman_id": "353b9742-52a3-4387-985c-e876a5c28c4f",
+		"name": "TinyLedger",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27466622"
+	},
+	"item": [
+		{
+			"name": "Create-Account",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"owner\":\"Saman\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:{{port_number}}/api/account/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "{{port_number}}",
+					"path": [
+						"api",
+						"account",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Balance",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:{{port_number}}/api/account/balance/1b569819-7be1-47a2-8fa6-823b773b4916",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "{{port_number}}",
+					"path": [
+						"api",
+						"account",
+						"balance",
+						"1b569819-7be1-47a2-8fa6-823b773b4916"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Deposit",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"toAccountId\": \"46a75375-26a8-48b2-916d-89e850240876\",\r\n    \"Amount\": 5.00\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:{{port_number}}/api/account/deposit",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "{{port_number}}",
+					"path": [
+						"api",
+						"account",
+						"deposit"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Withdraw",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"fromAccountId\": \"a8bf8b3a-4a18-4ed2-a2b8-765e556d2d1c\",\r\n    \"Amount\": 5.00\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:{{port_number}}/api/account/withdraw",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "{{port_number}}",
+					"path": [
+						"api",
+						"account",
+						"withdraw"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Transfer-Money",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"fromAccountId\": \"a8bf8b3a-4a18-4ed2-a2b8-765e556d2d1c\",\r\n    \"toAccountId\": \"46a75375-26a8-48b2-916d-89e850240876\",\r\n    \"Amount\": 1.00\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:{{port_number}}/api/account/transfer-money",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "{{port_number}}",
+					"path": [
+						"api",
+						"account",
+						"transfer-money"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Transactions",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:{{port_number}}/api/account/transactions/9b7fc7ba-a7ef-461d-8e77-c13d7e521e55",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "{{port_number}}",
+					"path": [
+						"api",
+						"account",
+						"transactions",
+						"9b7fc7ba-a7ef-461d-8e77-c13d7e521e55"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "port_number",
+			"value": "",
+			"type": "string"
+		}
+	]
+}
