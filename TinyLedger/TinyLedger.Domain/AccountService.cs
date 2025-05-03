@@ -25,7 +25,7 @@ public class AccountService
         var from = GetAccount(fromAccountId);
         var to = GetAccount(toAccountId);
 
-        from.Withdrawal(amount);
+        from.Withdraw(amount);
         to.Deposit(amount);
 
         var transaction = new Transaction(from.AccountId, to.AccountId, amount, TransactionType.Transfer);
@@ -38,6 +38,15 @@ public class AccountService
         account.Deposit(amount);
 
         var tx = new Transaction(null, toAccountId, amount, TransactionType.Deposit);
+        _transactions.Add(tx);
+    }
+
+    public void Withdraw(Guid fromAccountId, decimal amount)
+    {
+        var account = GetAccount(fromAccountId);
+        account.Withdraw(amount);
+
+        var tx = new Transaction(fromAccountId, null, amount, TransactionType.Withdrawal);
         _transactions.Add(tx);
     }
 

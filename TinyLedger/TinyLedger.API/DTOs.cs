@@ -2,7 +2,7 @@
 
 public class CreateAccountRequest
 {
-    public string Owner { get; set; }
+    public required string Owner { get; set; }
 }
 
 public class TransferMoneyRequest
@@ -15,5 +15,11 @@ public class TransferMoneyRequest
 public class DepositRequest
 {
     public Guid ToAccountId { get; set; }
+    public decimal Amount { get; set; }
+}
+
+public class WithdrawRequest
+{
+    public Guid FromAccountId { get; set; }
     public decimal Amount { get; set; }
 }

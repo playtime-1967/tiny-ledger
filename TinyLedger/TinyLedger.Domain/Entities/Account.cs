@@ -29,7 +29,7 @@ public class Account
         Balance += amount;
     }
 
-    public void Withdrawal(decimal amount)
+    public void Withdraw(decimal amount)
     {
         if (amount <= 0)
             throw new ArgumentException("Amount must be positive.");

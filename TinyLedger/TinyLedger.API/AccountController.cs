@@ -34,10 +34,16 @@ public class AccountController : ControllerBase
         _accountService.Deposit(request.ToAccountId, request.Amount);
     }
 
+    [HttpPost("withdraw")]
+    public void Withdraw([FromBody] WithdrawRequest request)
+    {
+        _accountService.Withdraw(request.FromAccountId, request.Amount);
+    }
+
     [HttpPost("transfer-money")]
     public void TransferMoney([FromBody] TransferMoneyRequest request)
     {
         _accountService.TransferMoney(request.FromAccountId, request.ToAccountId, request.Amount);
     }
-    
+
 }
