@@ -1,3 +1,10 @@
+### 👤 Contributor Note
+
+You may notice two different contributors listed in the repository: `playtime-1967` and `Snamnik`.
+Both accounts belong to me — **Saman Namnik**. The difference is due to my local Git configuration using a different default account (`Snamnik`) when I first pushed the code.
+
+---
+
 # Tiny Ledger API
 
 A simple in-memory ledger system implemented in .NET 9.0. It supports account creation, deposits, withdrawals, transfers, balance inquiries, and transaction history.
