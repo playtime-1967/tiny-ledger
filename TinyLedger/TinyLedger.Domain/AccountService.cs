@@ -50,6 +50,11 @@ public class AccountService
         _transactions.Add(tx);
     }
 
+    public IReadOnlyList<Transaction> GetTransactions(Guid accountId)
+    {
+        return _transactions.Where(tx => tx.FromAccountId == accountId || tx.ToAccountId == accountId).ToList();
+    }
+
     private Account GetAccount(Guid accountId)
     {
         if (!_accounts.TryGetValue(accountId, out var account))

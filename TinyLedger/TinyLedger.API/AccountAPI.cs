@@ -6,12 +6,12 @@ namespace TinyLedger.API;
 
 [ApiController]
 [Route("api/account")]
-public class AccountController : ControllerBase
+public class AccountAPI : ControllerBase
 {
 
     private readonly AccountService _accountService;
 
-    public AccountController(AccountService accountService)
+    public AccountAPI(AccountService accountService)
     {
         _accountService = accountService;
     }
@@ -44,6 +44,12 @@ public class AccountController : ControllerBase
     public void TransferMoney([FromBody] TransferMoneyRequest request)
     {
         _accountService.TransferMoney(request.FromAccountId, request.ToAccountId, request.Amount);
+    }
+
+    [HttpGet("transactions/{accountId}")]
+    public IReadOnlyList<Transaction> GetTransactions(Guid accountId)
+    {
+        return _accountService.GetTransactions(accountId);
     }
 
 }
