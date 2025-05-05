@@ -18,7 +18,7 @@ A simple in-memory ledger system implemented in .NET 9.0. It supports account cr
 ---
 
 ## 🏃 Running the Application
-
+Navigate to the TinyLedger/TinyLedger.API directory, 
 ```bash
 # Run on the default port (5293)
 dotnet run
